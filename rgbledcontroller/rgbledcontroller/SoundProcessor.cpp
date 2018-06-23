@@ -18,10 +18,11 @@ SoundProcessor::~SoundProcessor()
 {
 }
 
-int SoundProcessor::GetFrequency(int frequency) {
-	int l = wm->Record(200);
-	short *b = (short*)wm->GetBuffer();
-	for (int i = 20; i < 20 + 1024; i++)
+int SoundProcessor::GetFrequency(short * b,int l,int samplerate) {
+	vector<double> real;
+	vector<double> imag;
+	const int samples = 512;
+	for (int i = 20; i < 20 + samples; i++)
 	{
 		real.push_back(b[i]);
 		imag.push_back(0);
@@ -32,8 +33,8 @@ int SoundProcessor::GetFrequency(int frequency) {
 	{
 		result.push_back(floor(sqrt(pow(imag[i], 2) + pow(real[i], 2))));
 	}
-	int highest = (int)ceil(wm->GetSamplerate() / 15000.0);
-	int lowest = (int)floor(wm->GetSamplerate() / 100.0);
+	int highest = (int)ceil(samplerate / 15000.0);
+	int lowest = (int)floor(samplerate / 150.0);
 	int maxindex = highest;
 	double maxelement = result[highest];
 	for (int i = highest + 1; i < lowest; i++)
@@ -43,20 +44,10 @@ int SoundProcessor::GetFrequency(int frequency) {
 			maxindex = i;
 		}
 	}
-	int frequency = wm->GetSamplerate()*maxindex / 1024;
-	for (int i = 0; i < real.size(); i++)
-	{
-		resulttxt << result[i] << endl;
-
-	}
+	int frequency = samplerate*maxindex / samples;
+	real.clear();
+	imag.clear();
+	result.clear();
 	return frequency;
 }
 
-void SoundProcessor::TestTxt() {
-	realtxt.open("real.txt");
-	resulttxt.open("result.txt");
-	for (int i = 0; i < real.size(); i++)
-	{
-		realtxt << real[i] << endl;
-	}
-}

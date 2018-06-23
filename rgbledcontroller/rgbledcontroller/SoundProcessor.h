@@ -1,19 +1,20 @@
 #pragma once
 
+#include <vector>
+#include <fstream>
+
+using namespace std;
 
 class SoundProcessor
 {
 public:
 	SoundProcessor();
 	~SoundProcessor();
-	int GetFrequency(int);
-	void TestTxt();
+	int GetFrequency(short *,int,int);
+
 private:
-	vector<double> real;
-	vector<double> imag;
 	vector<double> result;
-	ofstream realtxt;
-	ofstream resulttxt;
-	WaveManager *wm = new WaveManager();
+	int dominantFrequency;
+	int dominantAmplitude;
 };
 

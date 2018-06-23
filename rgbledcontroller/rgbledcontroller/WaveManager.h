@@ -11,7 +11,7 @@ public:
 	WaveManager();
 	~WaveManager();
 	int Record(int length);
-	LPSTR GetBuffer();
+	short * GetBuffer();
 	int GetSamplerate();
 private:
 	WAVEFORMATEX format; //the format to use at recording

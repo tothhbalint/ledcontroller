@@ -34,8 +34,8 @@ int WaveManager::Record(int length) {
 	return buffer.dwBytesRecorded/format.nBlockAlign;
 }
 
-LPSTR WaveManager::GetBuffer() {
-	return buffer.lpData;
+short * WaveManager::GetBuffer() {
+	return (short*)buffer.lpData;
 }
 
 int WaveManager::GetSamplerate() {
