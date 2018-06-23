@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="FftRealPair.h" />
+    <ClInclude Include="SoundProcessor.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="WaveManager.h" />
     <ClInclude Include="targetver.h" />
@@ -156,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="FftRealPair.cpp" />
     <ClCompile Include="rgbledcontroller.cpp" />
+    <ClCompile Include="SoundProcessor.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

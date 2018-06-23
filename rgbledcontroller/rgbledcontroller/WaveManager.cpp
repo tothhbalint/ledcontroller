@@ -8,7 +8,7 @@ WaveManager::WaveManager()
 {
 	format.wFormatTag = WAVE_FORMAT_PCM;
 	format.nChannels = 1;
-	format.nSamplesPerSec = 48000;
+	format.nSamplesPerSec = 44100;
 	format.wBitsPerSample = 16;
 	format.nBlockAlign = format.nChannels*format.wBitsPerSample/8;
 	format.nAvgBytesPerSec = format.nSamplesPerSec * format.nBlockAlign;
@@ -31,7 +31,7 @@ int WaveManager::Record(int length) {
 	Sleep(length);
 	waveInStop(handle);
 	waveInClose(handle);
-	return buffer.dwBytesRecorded;
+	return buffer.dwBytesRecorded/format.nBlockAlign;
 }
 
 LPSTR WaveManager::GetBuffer() {
