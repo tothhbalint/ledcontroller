@@ -51,3 +51,7 @@ int SoundProcessor::GetFrequency(short * b,int l,int samplerate) {
 	return frequency;
 }
 
+int SoundProcessor::GetAmplitude(){
+	return dominantAmplitude;
+}
+

@@ -11,6 +11,7 @@ public:
 	SoundProcessor();
 	~SoundProcessor();
 	int GetFrequency(short *,int,int);
+	int GetAmplitude();
 
 private:
 	vector<double> result;
