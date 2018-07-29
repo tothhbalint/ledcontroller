@@ -7,7 +7,7 @@
 #include "stdafx.h"
 #include "SerialPort.h"
 
-SerialPort::SerialPort(char *portName)
+SerialPort::SerialPort(const char *portName)
 {
     this->connected = false;
 
@@ -80,7 +80,7 @@ int SerialPort::readSerialPort(char *buffer, unsigned int buf_size)
     return 0;
 }
 
-bool SerialPort::writeSerialPort(char *buffer, unsigned int buf_size)
+bool SerialPort::writeSerialPort(const char *buffer, unsigned int buf_size)
 {
     DWORD bytesSend;
 

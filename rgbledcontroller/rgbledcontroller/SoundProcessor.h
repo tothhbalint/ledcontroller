@@ -17,5 +17,6 @@ private:
 	vector<double> result;
 	int dominantFrequency;
 	int dominantAmplitude;
+	int maxindex;
 };
 
